@@ -1,11 +1,33 @@
+"""
+Base model class for the Tailspin Toys Crowd Funding platform.
+
+This module provides the base model class with common validation methods
+that can be inherited by all other model classes in the application.
+"""
 # filepath: server/models/base.py
 from . import db
 
 class BaseModel(db.Model):
+    """Abstract base model class providing common functionality for all models."""
     __abstract__ = True
     
     @staticmethod
     def validate_string_length(field_name, value, min_length=2, allow_none=False):
+        """
+        Validates the length of a string field.
+        
+        Args:
+            field_name (str): The name of the field being validated
+            value (str): The value to validate
+            min_length (int): Minimum required length for the string
+            allow_none (bool): Whether None values are allowed
+            
+        Returns:
+            str: The validated string value
+            
+        Raises:
+            ValueError: If validation fails
+        """
         if value is None:
             if allow_none:
                 return value
