@@ -1,3 +1,9 @@
+"""
+Database utilities for the Tailspin Toys Crowd Funding platform.
+
+This module provides database initialization and configuration functionality
+for the Flask application using SQLAlchemy ORM.
+"""
 import os
 from models import init_db as models_init_db
 
